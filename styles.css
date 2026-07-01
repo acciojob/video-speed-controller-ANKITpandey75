@@ -1,2 +1,80 @@
+html {
+  box-sizing: border-box;
+}
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2f2f2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.player {
+  width: min(765px, calc(100vw - 32px));
+  overflow: hidden;
+  background: #000;
+  border: 5px solid #000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.player__video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.player__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.progress {
+  flex: 1 0 100%;
+  height: 12px;
+  overflow: hidden;
+  background: #555;
+  cursor: pointer;
+}
+
+.progress__filled {
+  width: 0%;
+  height: 100%;
+  background: #ffc600;
+}
+
+.player__button {
+  min-width: 58px;
+  height: 34px;
+  border: 0;
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.player__button:hover {
+  background: #ffc600;
+}
+
+.toggle {
+  font-size: 18px;
+}
+
+.player__slider {
+  flex: 1;
+  min-width: 110px;
+}
 /* Your CSS Code here. */
