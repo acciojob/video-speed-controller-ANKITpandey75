@@ -1,5 +1,5 @@
 const player = document.querySelector(".player");
-const video = player.querySelector(".player__video");
+const video = player.querySelector(".viewer");
 const progress = player.querySelector(".progress");
 const progressFilled = player.querySelector(".progress__filled");
 const toggleButton = player.querySelector(".toggle");
@@ -30,11 +30,15 @@ function scrub(event) {
 }
 
 function handleRangeUpdate() {
-  video[this.name] = this.value;
+  video[this.name] = Number(this.value);
 }
 
 function skip() {
-  video.currentTime += Number(this.dataset.skip);
+  const skipTime = Number(this.dataset.skip);
+  const nextTime = video.currentTime + skipTime;
+  const duration = video.duration || 0;
+
+  video.currentTime = Math.min(Math.max(nextTime, 0), duration);
 }
 
 video.addEventListener("click", togglePlay);
@@ -46,6 +50,10 @@ toggleButton.addEventListener("click", togglePlay);
 volumeInput.addEventListener("input", handleRangeUpdate);
 playbackSpeedInput.addEventListener("input", handleRangeUpdate);
 skipButtons.forEach((button) => button.addEventListener("click", skip));
+
+video.volume = Number(volumeInput.value);
+video.playbackRate = Number(playbackSpeedInput.value);
+updateButton();
 
 let mouseDown = false;
 
