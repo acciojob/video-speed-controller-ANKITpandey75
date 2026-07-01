@@ -1,18 +1,15 @@
 body {
-  min-height: 100vh;
   margin: 0;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   background: #f2f2f2;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .player {
   width: 765px;
-  max-width: calc(100vw - 32px);
-  background: black;
-  border: 5px solid black;
+  background: #000;
 }
 
 .player__video {
@@ -23,30 +20,27 @@ body {
 .player__controls {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.85);
+  gap: 8px;
+  background: rgba(0,0,0,.8);
 }
 
 .progress {
   flex: 1 0 100%;
-  height: 12px;
-  background: #555;
+  height: 10px;
+  background: #666;
   cursor: pointer;
 }
 
 .progress__filled {
   width: 0%;
   height: 100%;
-  background: #ffc600;
+  background: gold;
 }
 
 .player__button {
-  min-width: 58px;
-  height: 34px;
   border: none;
-  background: white;
-  color: black;
+  padding: 8px 14px;
   cursor: pointer;
 }
 
